@@ -1,35 +1,23 @@
 score = [
-    {'school_class': '4a', 'scores': [3, 3, 4, 5, 2, 4, 2, 5, 5, 4]}, #37
-    {'school_class': '5b', 'scores': [3, 4, 5, 4, 3, 3, 3]}, #25
-    {'school_class': '6c', 'scores': [2, 4, 4, 4, 2, 5, 3, 3, 3, 4]}
+    {'school_class': '4a', 'scores': [3, 3, 4, 5, 2, 4, 2, 5, 5, 4]}, 
+    {'school_class': '5b', 'scores': [3, 4, 5, 4, 3, 3, 3]}, 
+    {'school_class': '6c', 'scores': [2, 4, 4, 4, 2, 5, 3, 3, 3]}
 ]
 
 score_sum = 0
+mid_score_sum = 0
 mid_score_school = 0
-mid_score_class_1 = 0
-mid_score_class_2 = 0
-mid_score_class_3 = 0
 
-for element in range(3):
-    for elem in score[element]['scores']:
-        score_sum += elem
-    length = len(score[element]['scores']) 
+for element_score in range(len(score)):
+    for element in score[element_score]['scores']:
+        score_sum += element
+        class_length =  score_sum / len(score[element_score]['scores'])
+    print("Средняя оценка класса -", score[element_score]['school_class'], ":", class_length)
+    mid_score_sum += score_sum
+    score_sum = 0
+    length = len(score[element_score]['scores'])
     mid_score_school += length
 
-for el in score[0]['scores']:
-    mid_score_class_1 += el
+print("Средняя оценка по школе:", mid_score_sum / mid_score_school)
 
-for el in score[1]['scores']:
-    mid_score_class_2 += el
-    
-for el in score[2]['scores']:
-    mid_score_class_3 += el
 
-length_2 = len(score[0]['scores']) 
-length_3 = len(score[1]['scores'])
-length_4 = len(score[2]['scores'])
-
-print("Средняя оценка по школе:", score_sum/mid_score_school)
-print("Средняя оценка класса -", score[0]['school_class'], ":", mid_score_class_1 / length_2)
-print("Средняя оценка класса -", score[1]['school_class'], ":", mid_score_class_2 / length_3)
-print("Средняя оценка класса -", score[2]['school_class'], ":", mid_score_class_3 / length_4)

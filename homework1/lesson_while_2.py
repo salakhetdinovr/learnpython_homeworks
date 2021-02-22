@@ -4,12 +4,7 @@ questions = {
     "Где учишься?" : "На курсах Learn Python",
 }
 
+while True:
+    ask = input("Введите вопрос:")
+    print(questions.get(ask))
 
-def ask_user():
-    while True:
-        ask = input("Введите вопрос: ")
-        for key in questions:
-            if key == ask:
-                print(questions.get(key))
-
-ask_user()
