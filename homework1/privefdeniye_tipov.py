@@ -1,0 +1,5 @@
+print(int('1'))
+print(float('2.5'))
+print(bool(1))
+print(bool(''))
+print(bool(0))
